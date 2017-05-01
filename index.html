@@ -4,14 +4,33 @@
     <title>VueJS Tutorial</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <style>
+      #canvas{
+        width: 600px;
+        padding: 200px 20px;
+        text-align: center;
+        border: 1px solid #333;
+      }
+    </style>
   </head>
   <body>
     <div id="vue-app">
       <h1>{{ name }}</h1>
+      <div>
+        <a v-bind:href="website">Website Link</a>
+        | <a v-on:click.prevent="click" href="http://liviulvu.github.io">My Site</a>
+      </div>
       <p>{{ job }}</p>
       <p>{{ greet('afternoon') }}</p>
-      <a v-bind:href="website">Website Link</a>
       <input type="text" v-bind:value="job">
+      <br>
+      <p>Age is {{ age }}</p>
+      <button v-on:click.once="add(1)">Add year</button>
+      <button v-on:click="subtract(1)">Subtract year</button>
+      <button v-on:dblclick="add(10)">Add 10 years</button>
+      <button v-on:dblclick="subtract(10)">Subtract 10 years</button>
+      <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
     </div>
 
     <script src="vue.js"></script>
