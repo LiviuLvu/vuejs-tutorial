@@ -1,9 +1,9 @@
 var app = new Vue({
   el: '#vue-app',
   data: {
-    name: 'Strauss',
+    name: '',
     job: 'Composer',
-    age: 30,
+    age: '',
     website: 'http://google.com',
     x: 0,
     y: 0
@@ -20,6 +20,12 @@ var app = new Vue({
     },
     click: function () {
       console.log('you clicked');
+    },
+    logName: function () {
+      console.log('received name data');
+    },
+    logAge: function () {
+      console.log('received age data');
     }
   }
 });

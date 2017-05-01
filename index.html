@@ -16,7 +16,7 @@
   </head>
   <body>
     <div id="vue-app">
-      <h1>{{ name }}</h1>
+      <h1>VueJs</h1>
       <div>
         <a v-bind:href="website">Website Link</a>
         | <a v-on:click.prevent="click" href="http://liviulvu.github.io">My Site</a>
@@ -30,7 +30,17 @@
       <button v-on:click="subtract(1)">Subtract year</button>
       <button v-on:dblclick="add(10)">Add 10 years</button>
       <button v-on:dblclick="subtract(10)">Subtract 10 years</button>
+      
+      <h3>Keyboard events</h3>
+      <label for="name">Name:</label>
+      <input id="name" type="text" v-model="name">
+      <span>{{ name }}</span>
+      <label for="age">Age:</label>
+      <input id="age" type="text" v-model="age">
+      <span>{{ age }}</span>
+
       <div id="canvas" v-on:mousemove="updateXY">{{ x }}, {{ y }}</div>
+
     </div>
 
     <script src="vue.js"></script>
