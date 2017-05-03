@@ -12,6 +12,10 @@
         background: url(img/bag.png) center no-repeat;
         background-size: 80%;
       }
+      #bag.burst{
+        background: url(/img/bag-burst.png) center no-repeat;
+        background-size: 80%;
+      }
       #bag-health{
         width: 200px;
         border: 2px solid #000;
@@ -29,16 +33,16 @@
     <div class="small-3 small-centered columns text-center">
       <div id="vue-app">
         <!-- bag image -->
-        <div id="bag" class="small-3 small-centered"></div>
+        <div id="bag" v-bind:class="{ burst: ended }" class="small-3 small-centered"></div>
         <!-- bag health -->
         <div id="bag-health" class="small-3 small-centered">
-          <div></div>
+          <div v-bind:style="{ width: health + '%'}"></div>
         </div>
         <!-- game controls -->
         <br>
         <div class="row">
-          <button class="warning button small-3 small-centered columns">Punch</button>
-          <button class="warning button small-3 small-centered columns">Restart</button>
+          <button v-on:click="punch" v-show="!ended" class="warning button small-3 small-centered columns">Punch</button>
+          <button v-on:click="restart" class="warning button small-3 small-centered columns">Restart</button>
         </div>
       </div>
     </div>

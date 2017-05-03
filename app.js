@@ -1,31 +1,22 @@
 var app = new Vue({
   el: '#vue-app',
   data: {
-    name: '',
-    job: 'Composer',
-    age: '',
-    website: 'http://google.com',
-    x: 0,
-    y: 0
+    health: 100,
+    ended: false
   },
   methods: {
-    greet: function (time) {
-      return 'good ' + time + ' ' + this.name;
+    punch: function () {
+      this.health -= 10;
+      if (this.health <= 0){
+        this.ended = true;
+      }
     },
-    add: function (inc) {this.age+=inc},
-    subtract: function (dec) {this.age-=dec},
-    updateXY: function (event) {
-      this.x = event.offsetX;
-      this.y = event.offsetY;
-    },
-    click: function () {
-      console.log('you clicked');
-    },
-    logName: function () {
-      console.log('received name data');
-    },
-    logAge: function () {
-      console.log('received age data');
+    restart: function () {
+      this.health = 100;
+      this.ended = false;
     }
+  },
+  computed: {
+
   }
 });
